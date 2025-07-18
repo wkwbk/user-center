@@ -1,0 +1,12 @@
+services:
+  user-center-backend:
+    image: ghcr.io/wkwbk/user-center-backend:latest
+    container_name: user-center-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=debian
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=778057151
