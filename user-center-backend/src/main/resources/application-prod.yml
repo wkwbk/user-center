@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:debian}:${DB_PORT:3306}/user_center
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:778057151}
+  # session 失效时间
+  session:
+    timeout: 86400

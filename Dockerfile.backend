@@ -1,0 +1,22 @@
+# 第一步：使用 Maven 构建 Spring Boot 多模块项目
+FROM maven:3.9.9-eclipse-temurin-21 AS builder
+
+WORKDIR /app
+
+# 复制所有项目文件
+COPY . .
+
+# 编译主模块（跳过测试）
+RUN mvn clean package -DskipTests
+
+# 第二步：使用更轻量的 JDK 运行
+FROM eclipse-temurin:21-jdk-jammy
+
+WORKDIR /app
+
+# 复制构建产物（默认 JAR 名称可能含版本号）
+COPY --from=builder /app/target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
