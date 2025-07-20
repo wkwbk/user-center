@@ -70,11 +70,6 @@ const items = ref<MenuProps['items']>([
     label: '用户管理',
     title: '用户管理',
   },
-  {
-    key: 'others',
-    label: h('a', { href: 'https://www.codefather.cn', target: '_blank' }, '编程导航'),
-    title: '编程导航',
-  },
 ])
 </script>
 
